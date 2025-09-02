@@ -83,6 +83,138 @@ l<!DOCTYPE html>
             font-family: var(--heading-font);
         }
         
+        /* Mobile Responsive Styles */
+        @media (max-width: 768px) {
+            .App {
+                padding: 10px;
+                max-width: 100%;
+            }
+            
+            .app-header h1 {
+                font-size: 2.5rem;
+                line-height: 1.2;
+            }
+            
+            .subtitle {
+                font-size: 1rem;
+                padding: 0 1rem;
+            }
+            
+            .input-group {
+                flex-direction: column;
+                gap: 0.5rem;
+                padding: 1rem;
+                margin: 0 0.5rem 2rem;
+            }
+            
+            .skill-input {
+                padding: 0.8rem 1rem;
+                font-size: 1rem;
+                text-align: center;
+            }
+            
+            .search-btn {
+                width: 100%;
+                padding: 0.8rem 1rem;
+                font-size: 0.9rem;
+            }
+            
+            .subscription-plans {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+                padding: 0 0.5rem;
+            }
+            
+            .plan-card {
+                padding: 1.5rem;
+            }
+            
+            .features-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            
+            .social-row-1, .social-row-2 {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+            }
+            
+            .university-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+            }
+            
+            .chatbot-panel {
+                width: 95%;
+                max-width: none;
+                left: 2.5%;
+                right: 2.5%;
+                bottom: 80px;
+            }
+            
+            .chatbot-toggle {
+                width: 50px;
+                height: 50px;
+                font-size: 1.2rem;
+            }
+            
+            #popularity-stats {
+                flex-direction: column;
+                gap: 0.8rem;
+            }
+            
+            .stat-card {
+                min-width: auto;
+                width: 100%;
+            }
+            
+            .example-section {
+                margin-top: 2rem;
+            }
+            
+            .skill-button {
+                padding: 0.6rem 1rem;
+                font-size: 0.9rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .app-header h1 {
+                font-size: 2rem;
+            }
+            
+            .subtitle {
+                font-size: 0.9rem;
+            }
+            
+            .plan-card {
+                padding: 1rem;
+            }
+            
+            .plan-card .plan-header {
+                margin-bottom: 1rem;
+            }
+            
+            .plan-card h4 {
+                font-size: 1.3rem;
+            }
+            
+            .plan-card ul li {
+                padding: 0.3rem 0;
+                font-size: 0.8rem;
+            }
+            
+            .social-link {
+                padding: 0.8rem;
+                font-size: 0.8rem;
+            }
+            
+            .university-card {
+                padding: 0.8rem 1rem;
+                min-width: auto;
+            }
+        }
+        
         h1, h2, h3, h4, h5, h6 {
             font-family: var(--heading-font);
             font-weight: 600;
@@ -152,6 +284,50 @@ l<!DOCTYPE html>
             font-size: 1rem;
             box-shadow: 0 4px 15px rgba(245, 158, 11, 0.3);
             letter-spacing: 0.025em;
+        }
+        
+        .search-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(245, 158, 11, 0.4);
+        }
+        
+        /* Touch device optimization */
+        @media (hover: none) and (pointer: coarse) {
+            .search-btn:hover {
+                transform: none;
+                box-shadow: 0 4px 15px rgba(245, 158, 11, 0.3);
+            }
+            
+            .search-btn:active {
+                transform: scale(0.98);
+                transition: transform 0.1s ease;
+            }
+            
+            .skill-button:hover {
+                transform: none;
+                background: rgba(255, 255, 255, 0.15);
+            }
+            
+            .skill-button:active {
+                transform: scale(0.95);
+                background: rgba(255, 255, 255, 0.2);
+            }
+            
+            .plan-card:hover {
+                transform: none;
+            }
+            
+            .social-link:hover {
+                transform: none;
+            }
+            
+            .social-link:active {
+                transform: scale(0.95);
+            }
+            
+            button:active {
+                transform: scale(0.98);
+            }
         }
 
         /* Interactive Gradient Background Styles */
@@ -1000,13 +1176,13 @@ l<!DOCTYPE html>
                 
                 <!-- Job Filter Options -->
                 <div style="display: flex; justify-content: center; gap: 1rem; margin: 1rem 0; flex-wrap: wrap;">
-                    <select id="job-filter" class="filter-dropdown" style="background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); color: white; padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.9rem; outline: none;">
+                    <select id="job-filter" class="filter-dropdown" style="background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); color: white; padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.9rem; outline: none; min-width: 120px;">
                         <option value="all" style="background: #1f2937; color: white;">🌍 All Jobs</option>
                         <option value="remote" style="background: #1f2937; color: white;">🏠 Remote Only</option>
                         <option value="local" style="background: #1f2937; color: white;">🏢 Local Jobs</option>
                         <option value="hybrid" style="background: #1f2937; color: white;">🔄 Hybrid</option>
                     </select>
-                    <select id="experience-filter" class="filter-dropdown" style="background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); color: white; padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.9rem; outline: none;">
+                    <select id="experience-filter" class="filter-dropdown" style="background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); color: white; padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.9rem; outline: none; min-width: 120px;">
                         <option value="all" style="background: #1f2937; color: white;">💼 All Levels</option>
                         <option value="entry" style="background: #1f2937; color: white;">🌱 Entry Level</option>
                         <option value="mid" style="background: #1f2937; color: white;">📈 Mid Level</option>
