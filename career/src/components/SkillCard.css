@@ -1,0 +1,211 @@
+.skill-card {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  padding: 2rem;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  min-height: 300px;
+  display: flex;
+  flex-direction: column;
+}
+
+.skill-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 40px 0 rgba(31, 38, 135, 0.5);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.card-icon {
+  font-size: 2rem;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+}
+
+.card-title {
+  color: white;
+  margin: 0;
+  font-size: 1.3rem;
+  font-weight: 600;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.card-content {
+  flex: 1;
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.6;
+}
+
+.card-text {
+  margin: 0;
+  font-size: 1.1rem;
+  line-height: 1.7;
+}
+
+.learning-steps {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.learning-step {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  border-left: 4px solid #4f46e5;
+  transition: all 0.3s ease;
+}
+
+.learning-step:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateX(5px);
+}
+
+.step-number {
+  background: linear-gradient(45deg, #4f46e5, #7c3aed);
+  color: white;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 0.9rem;
+  flex-shrink: 0;
+  box-shadow: 0 4px 8px rgba(79, 70, 229, 0.3);
+}
+
+.step-content {
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.monetization-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.monetization-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 1.2rem;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  border-left: 4px solid #059669;
+  transition: all 0.3s ease;
+}
+
+.monetization-item:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateX(5px);
+}
+
+.opportunity-icon {
+  font-size: 1.2rem;
+  flex-shrink: 0;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+}
+
+.opportunity-text {
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.card-footer {
+  margin-top: 1.5rem;
+  height: 4px;
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.card-accent {
+  height: 100%;
+  border-radius: 2px;
+  animation: shimmer 2s ease-in-out infinite;
+}
+
+.overview-accent {
+  background: linear-gradient(90deg, #3b82f6, #1d4ed8);
+}
+
+.learning-accent {
+  background: linear-gradient(90deg, #4f46e5, #7c3aed);
+}
+
+.monetization-accent {
+  background: linear-gradient(90deg, #059669, #047857);
+}
+
+@keyframes shimmer {
+  0%, 100% {
+    opacity: 0.7;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+/* Card type specific styling */
+.overview-card {
+  border-left: 4px solid #3b82f6;
+}
+
+.learning-card {
+  border-left: 4px solid #4f46e5;
+}
+
+.monetization-card {
+  border-left: 4px solid #059669;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .skill-card {
+    padding: 1.5rem;
+    min-height: 250px;
+  }
+  
+  .card-title {
+    font-size: 1.1rem;
+  }
+  
+  .card-icon {
+    font-size: 1.5rem;
+  }
+  
+  .learning-step,
+  .monetization-item {
+    padding: 0.8rem;
+    margin-bottom: 1rem;
+  }
+  
+  .step-number {
+    width: 25px;
+    height: 25px;
+    font-size: 0.8rem;
+  }
+  
+  .step-content,
+  .opportunity-text {
+    font-size: 0.9rem;
+  }
+}

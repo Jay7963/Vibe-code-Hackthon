@@ -1,0 +1,119 @@
+.gradient-blinds-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  --mouse-x: 50%;
+  --mouse-y: 50%;
+  --spotlight-radius: 0.5;
+  --spotlight-opacity: 1;
+  --noise-amount: 0.3;
+  --distort-amount: 0;
+  --shine-direction: 0;
+  --calculated-blind-count: 12;
+  --blind-width: 50px;
+}
+
+.gradient-blinds {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, #FF9FFC, #5227FF, #FF9FFC, #5227FF);
+  background-size: 400% 400%;
+  animation: gradientShift 15s ease infinite;
+  opacity: 0.3;
+}
+
+.gradient-blinds::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: repeating-linear-gradient(
+    90deg,
+    transparent 0px,
+    transparent var(--blind-width, 50px),
+    rgba(255, 255, 255, 0.1) var(--blind-width, 50px),
+    rgba(255, 255, 255, 0.1) calc(var(--blind-width, 50px) + 10px)
+  );
+  animation: blindsMove 20s linear infinite;
+  transform: translateX(calc(var(--shine-direction, 0) * -100px));
+}
+
+.gradient-blinds::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(
+    circle calc(300px * var(--spotlight-radius, 0.5)) at var(--mouse-x, 50%) var(--mouse-y, 50%), 
+    rgba(255, 255, 255, var(--spotlight-opacity, 1)) 0%, 
+    transparent 50%
+  );
+  transition: all 0.3s ease;
+  opacity: 0.15;
+}
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes blindsMove {
+  0% {
+    transform: translateX(calc(-1 * var(--blind-width, 50px)));
+  }
+  100% {
+    transform: translateX(var(--blind-width, 50px));
+  }
+}
+
+.gradient-noise {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: calc(var(--noise-amount, 0.3) * 0.3);
+  background-image: 
+    radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.3) 0%, transparent 50%),
+    radial-gradient(circle at 40% 40%, rgba(120, 119, 198, 0.3) 0%, transparent 50%);
+  animation: noiseFloat 25s ease-in-out infinite;
+  transform: scale(calc(1 + var(--distort-amount, 0) * 0.1));
+}
+
+@keyframes noiseFloat {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg) scale(calc(1 + var(--distort-amount, 0) * 0.1));
+    opacity: calc(var(--noise-amount, 0.3) * 0.3);
+  }
+  50% {
+    transform: translateY(-20px) rotate(1deg) scale(calc(1 + var(--distort-amount, 0) * 0.1));
+    opacity: calc(var(--noise-amount, 0.3) * 0.5);
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .gradient-blinds-container {
+    --blind-width: 30px;
+  }
+}
+
+@media (max-width: 480px) {
+  .gradient-blinds-container {
+    --blind-width: 20px;
+  }
+}
